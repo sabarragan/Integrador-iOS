@@ -14,7 +14,9 @@
 		B442F6FA28C7DC3B00ED8EBA /* Integrador_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6F928C7DC3B00ED8EBA /* Integrador_iOSTests.swift */; };
 		B442F70428C7DC3B00ED8EBA /* Integrador_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */; };
 		B442F70628C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */; };
-		B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F71828C7E05F00ED8EBA /* MainViewController.swift */; };
+		B4ACBEF128C8ED6400D5A36F /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */; };
+		B4ACBEF328C8ED7F00D5A36F /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */; };
+		B4ACBEF528C8ED9A00D5A36F /* ActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +48,9 @@
 		B442F6FF28C7DC3B00ED8EBA /* Integrador-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrador-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITests.swift; sourceTree = "<group>"; };
 		B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B442F71828C7E05F00ED8EBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
+		B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 		B442F71228C7DEBD00ED8EBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 		B442F71328C7DF4F00ED8EBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -144,7 +150,7 @@
 		B442F71428C7DF6300ED8EBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
+				B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,9 +308,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4ACBEF528C8ED9A00D5A36F /* ActivitiesModel.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
+				B4ACBEF128C8ED6400D5A36F /* ActivityCellView.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
-				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
+				B4ACBEF328C8ED7F00D5A36F /* ActivityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
