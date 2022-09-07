@@ -15,7 +15,7 @@ class TermsViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.31, green: 0.28, blue: 0.94, alpha: 1.00)
+        view.backgroundColor = UIColor(named: "background")
         title = "Terms and Conditions"
     }
 }
