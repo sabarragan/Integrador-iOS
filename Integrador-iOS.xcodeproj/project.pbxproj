@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67D25F5928C84AF300F24E27 /* ScreenStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D25F5828C84AF300F24E27 /* ScreenStartViewController.swift */; };
 		B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6E228C7DC3800ED8EBA /* AppDelegate.swift */; };
 		B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6E428C7DC3800ED8EBA /* SceneDelegate.swift */; };
 		B442F6EC28C7DC3B00ED8EBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B442F6EB28C7DC3B00ED8EBA /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		67D25F5828C84AF300F24E27 /* ScreenStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStartViewController.swift; sourceTree = "<group>"; };
 		B442F6DF28C7DC3800ED8EBA /* Integrador-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Integrador-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B442F6E228C7DC3800ED8EBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B442F6E428C7DC3800ED8EBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67D25F5728C84A9B00F24E27 /* ScreenStart */ = {
+			isa = PBXGroup;
+			children = (
+				67D25F5828C84AF300F24E27 /* ScreenStartViewController.swift */,
+			);
+			path = ScreenStart;
+			sourceTree = "<group>";
+		};
 		B442F6D628C7DC3800ED8EBA = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		B442F71428C7DF6300ED8EBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				67D25F5728C84A9B00F24E27 /* ScreenStart */,
 				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
 			);
 			path = Controller;
@@ -305,6 +316,7 @@
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
+				67D25F5928C84AF300F24E27 /* ScreenStartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
