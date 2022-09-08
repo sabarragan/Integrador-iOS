@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - Option selection
-enum activityType {
+enum ActivityType {
     case random
     case category
 }
@@ -16,11 +16,16 @@ enum activityType {
 class SuggestionViewController: UIViewController {
     // MARK: - Properties
     private let navBarAppearance = UINavigationBarAppearance()
-    private var suggestionView = SuggestionView()
+    private lazy var suggestionView = SuggestionView()
 
     // MARK: - Life Cycle
     override func loadView() {
         view = suggestionView
+        suggestionView.activityType = .random
+        suggestionView.activityText = "Hi, I´m an example"
+        suggestionView.participantsCount = 2
+        suggestionView.price = 0.6
+        suggestionView.categoryName = "Adventure"
     }
     
     override func viewDidLoad() {
@@ -29,12 +34,12 @@ class SuggestionViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.compactAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        title = "Test"
+        
+        title = "Random"
     }
     
     // MARK: - Navigation Bar Configuration
     func navBarConfiguration() {
         navBarAppearance.backgroundColor = UIColor(red: 0.38, green: 0.60, blue: 0.89, alpha: 1.00)
-        navBarAppearance.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: 32)]
     }
 }

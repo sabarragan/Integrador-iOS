@@ -8,11 +8,51 @@
 import UIKit
 
 class SuggestionView: UIView {
+    // MARK: - Public properties
+    var activityType: ActivityType = .random
+    
+    var categoryName: String? {
+        didSet {
+            categoryTitleLabel.text = categoryName
+        }
+    }
+    
+    var activityText: String? {
+        didSet {
+            activityTitle.text = activityText ?? "Error"
+        }
+    }
+    
+    var participantsCount: Int? {
+        didSet {
+            participantsCountLabel.text = String(participantsCount ?? 0)
+        }
+    }
+    
+    var price: Double? {
+        didSet {
+            if let price = price {
+                switch price {
+                case 0:
+                    priceCountLabel.text = "Free!"
+                case 0.1...0.3:
+                    priceCountLabel.text = "Low"
+                case 0.4...0.6:
+                    priceCountLabel.text = "Medium"
+                case 0.7...1.0:
+                    priceCountLabel.text = "High"
+                default:
+                    priceCountLabel.text = "Error"
+                }
+            }
+        }
+    }
+    
     // MARK: - Properties
     private let activityTitle: UILabel = {
         let label = UILabel()
         label.text = "Learn how to play a new sport"
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.font = .boldSystemFont(ofSize: 38)
         label.textColor = .label
         label.textAlignment = .center
@@ -24,9 +64,6 @@ class SuggestionView: UIView {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.spacing = 34
-        [participantsStackView,
-        priceStackView,
-        categoryStackView].forEach { stackView.addArrangedSubview($0) }
         return stackView
     }()
     
@@ -141,6 +178,7 @@ class SuggestionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
+        setupActivityType()
         addSubviews()
         addConstraints()
     }
@@ -151,6 +189,20 @@ class SuggestionView: UIView {
     }
     
     // MARK: - Setup & Constraints
+    private func setupActivityType() {
+        
+        switch activityType {
+        case .random:
+            [participantsStackView,
+             priceStackView,
+             categoryStackView].forEach { mainStackView.addArrangedSubview($0) }
+            
+        case .category:
+            [participantsStackView,
+             priceStackView].forEach { mainStackView.addArrangedSubview($0) }
+        }
+    }
+    
     private func viewSetup() {
         backgroundColor = UIColor(red: 0.91, green: 0.96, blue: 0.99, alpha: 1.00)
     }
