@@ -19,6 +19,8 @@
 		B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F71828C7E05F00ED8EBA /* MainViewController.swift */; };
 		CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED628C81689006EFB94 /* SuggestionViewController.swift */; };
 		CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED828C816A4006EFB94 /* SuggestionView.swift */; };
+		CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907728CA7A08001492CA /* TermsViewController.swift */; };
+		CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907928CA7A18001492CA /* TermsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,9 @@
 		B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B442F71828C7E05F00ED8EBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC047ED628C81689006EFB94 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
-		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Controller/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
+		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Modules/Suggestion/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
+		CCDD907728CA7A08001492CA /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		CCDD907928CA7A18001492CA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +118,8 @@
 		B442F6E128C7DC3800ED8EBA /* Integrador-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CCDD907428CA796F001492CA /* Modules */,
 				B442F71528C7DF9B00ED8EBA /* Shared */,
-				B442F71428C7DF6300ED8EBA /* Controller */,
-				B442F71328C7DF4F00ED8EBA /* View */,
-				B442F71228C7DEBD00ED8EBA /* Model */,
 				B442F6E228C7DC3800ED8EBA /* AppDelegate.swift */,
 				B442F6E428C7DC3800ED8EBA /* SceneDelegate.swift */,
 				B442F6EB28C7DC3B00ED8EBA /* Assets.xcassets */,
@@ -144,31 +146,6 @@
 			path = "Integrador-iOSUITests";
 			sourceTree = "<group>";
 		};
-		B442F71228C7DEBD00ED8EBA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B442F71328C7DF4F00ED8EBA /* View */ = {
-			isa = PBXGroup;
-			children = (
-				CC047ED828C816A4006EFB94 /* SuggestionView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B442F71428C7DF6300ED8EBA /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				67D25F5728C84A9B00F24E27 /* ScreenStart */,
-				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
-				CC047ED628C81689006EFB94 /* SuggestionViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		B442F71528C7DF9B00ED8EBA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +167,35 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CCDD907428CA796F001492CA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
+				67D25F5728C84A9B00F24E27 /* ScreenStart */,
+				CCDD907628CA79F1001492CA /* Terms */,
+				CCDD907528CA7992001492CA /* Suggestion */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		CCDD907528CA7992001492CA /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				CC047ED628C81689006EFB94 /* SuggestionViewController.swift */,
+				CC047ED828C816A4006EFB94 /* SuggestionView.swift */,
+			);
+			path = Suggestion;
+			sourceTree = "<group>";
+		};
+		CCDD907628CA79F1001492CA /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				CCDD907728CA7A08001492CA /* TermsViewController.swift */,
+				CCDD907928CA7A18001492CA /* TermsView.swift */,
+			);
+			path = Terms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,11 +329,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
+				CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */,
 				CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
 				67328E7928CA0D4800AE4324 /* HomeView.swift in Sources */,
+				CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */,
 				67D25F5928C84AF300F24E27 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
