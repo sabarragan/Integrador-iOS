@@ -14,11 +14,54 @@ class ActivityViewController: UIViewController {
     
     var activities: [String] = Activities().activities
     
-    private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let activitiesTable = UITableView()
         activitiesTable.translatesAutoresizingMaskIntoConstraints = false
+        activitiesTable.backgroundColor = UIColor(red: 211/255, green: 241/255, blue: 254/255, alpha: 1)
         return activitiesTable
     }()
+    
+    private lazy var blueView: UIView = {
+       let blueView = UIView()
+        blueView.translatesAutoresizingMaskIntoConstraints = false
+        blueView.backgroundColor = UIColor(red: 62/255, green: 145/255, blue: 226/255, alpha: 1)
+        blueView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        return blueView
+    }()
+    
+    private lazy var activityTitle: UILabel = {
+        let activityTitle = UILabel()
+        activityTitle.translatesAutoresizingMaskIntoConstraints = false
+        activityTitle.textColor = .black
+        activityTitle.text = "Activities"
+        activityTitle.font = .systemFont(ofSize: 30, weight: .bold)
+        activityTitle.textAlignment = .center
+        activityTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        activityTitle.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        return activityTitle
+    }()
+    
+    private lazy var randomButton: UIButton = {
+       let randomButton = UIButton()
+        randomButton.translatesAutoresizingMaskIntoConstraints = false
+        randomButton.setImage(UIImage(named: "random-icon"), for: .normal)
+        randomButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        randomButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        randomButton.addTarget(self, action: #selector(self.randomButtonClicked(_ :)), for: .touchUpInside)
+        return randomButton
+    }()
+    
+    private lazy var backButton: UIButton = {
+       let backButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setImage(UIImage(systemName: "chevron.left"),for: .normal)
+        backButton.tintColor = .black
+        backButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        backButton.addTarget(self, action: #selector(self.backButtonClicked(_ :)), for: .touchUpInside)
+        return backButton
+    }()
+    
     
     
     override func viewDidLoad() {
@@ -26,24 +69,25 @@ class ActivityViewController: UIViewController {
         
         setupView()
         setupConstraints()
+        
     }
     
+    @objc func backButtonClicked(_ sender: UIButton) {
+              print("backButtonClicked")
+         }
+    
+    @objc func randomButtonClicked(_ sender: UIButton) {
+              print("randomButtonClicked")
+         }
+    
     private func setupView() {
-        
-        let lbNavTitle = UILabel (frame: CGRect(x: 0, y: 0, width: 320, height: 80 ))
-        lbNavTitle.textColor = UIColor.black
-        lbNavTitle.numberOfLines = 0
-        lbNavTitle.center = CGPoint(x: 0, y: 0)
-        lbNavTitle.textAlignment = .center
-        lbNavTitle.text = "Activities"
-        self.navigationItem.titleView = lbNavTitle
-        
-        
-        view.addSubview(tableView)
-        
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.backgroundColor = .systemBlue
-//        navigationController?.navigationBar.contentMode = .scaleToFill
+                
+       
+        self.view.addSubview(blueView)
+        self.view.addSubview(activityTitle)
+        self.view.addSubview(randomButton)
+        self.view.addSubview(backButton)
+        self.view.addSubview(tableView)
             
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,18 +97,36 @@ class ActivityViewController: UIViewController {
     
     private func setupConstraints () {
         NSLayoutConstraint.activate([
+            
+            blueView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            blueView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            blueView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            activityTitle.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 60),
+            activityTitle.centerXAnchor.constraint(equalTo: blueView.centerXAnchor),
+            
+            randomButton.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 60),
+            randomButton.leadingAnchor.constraint(equalTo: activityTitle.trailingAnchor, constant: 40),
+            
+            
+            backButton.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 60),
+            backButton.leadingAnchor.constraint(equalTo: blueView.leadingAnchor, constant: 20),
+            
             tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: blueView.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)])
     }
-    
-    
     
 }
 
 extension ActivityViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let acticitySelected = self.activities[indexPath.row] // Actividad Seleccionada, se debe enviar a las vista que hizo Ana.
+        
+        print(acticitySelected)
+    }
 }
 
 extension ActivityViewController: UITableViewDataSource {

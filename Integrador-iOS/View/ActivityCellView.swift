@@ -8,7 +8,7 @@
 import UIKit
 
 class ActivityCell: UITableViewCell {
-    let constantCell: CGFloat = 20
+    let constantCell: CGFloat = 25
     
     var activity: String?{
         didSet {
@@ -28,7 +28,8 @@ class ActivityCell: UITableViewCell {
         let nextButton = UIImageView()
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.contentMode = .scaleAspectFit
-        nextButton.image = UIImage(named: "Arrow")
+        nextButton.image = UIImage(systemName: "chevron.right")
+        nextButton.tintColor = .black
         return nextButton
     }()
     
@@ -45,6 +46,7 @@ class ActivityCell: UITableViewCell {
     private func setupView() {
         contentView.addSubview(activityName)
         contentView.addSubview(button)
+        contentView.backgroundColor = UIColor(red: 211/255, green: 241/255, blue: 254/255, alpha: 1)
     }
     
     private func setupConstraints() {

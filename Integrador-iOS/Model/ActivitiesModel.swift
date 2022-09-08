@@ -9,6 +9,7 @@ import UIKit
 
 struct Activities {
 
+//    let activity: String
     
     let activities: [String] = ["Education", "Recreational", "Social", "Diy", "Charity", "Cooking", "Relaxation", "Music", "Busywork"]
     
