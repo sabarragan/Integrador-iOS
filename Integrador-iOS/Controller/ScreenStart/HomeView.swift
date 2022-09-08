@@ -1,13 +1,14 @@
 //
-//  ScreenStartViewController.swift
+//  HomeView.swift
 //  Integrador-iOS
 //
-//  Created by Jacobo Ezequiel Corvalan on 07/09/2022.
+//  Created by Jacobo Ezequiel Corvalan on 08/09/2022.
 //
 
+import Foundation
 import UIKit
 
-class ScreenStartViewController: UIViewController {
+final class HomeView: UIView{
     
     private lazy var logoImageApp: UIImageView = {
         let aImageView = UIImageView()
@@ -15,7 +16,7 @@ class ScreenStartViewController: UIViewController {
         aImageView.clipsToBounds = true
         let image = UIImage(named: "logo")
         aImageView.image = image
-        view.addSubview(aImageView)
+        addSubview(aImageView)
         
         return aImageView
     }()
@@ -26,7 +27,7 @@ class ScreenStartViewController: UIViewController {
         aLabel.text = "Participants"
         aLabel.textColor = .white
         aLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        view.addSubview(aLabel)
+        addSubview(aLabel)
         
         return aLabel
     }()
@@ -47,7 +48,7 @@ class ScreenStartViewController: UIViewController {
         let paddingView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: aTextField.frame.height))
         aTextField.leftView = paddingView
         aTextField.leftViewMode = UITextField.ViewMode.always
-        view.addSubview(aTextField)
+        addSubview(aTextField)
         
         return aTextField
         
@@ -64,8 +65,9 @@ class ScreenStartViewController: UIViewController {
         aButton.layer.shadowRadius = 2.0
         aButton.layer.shadowOffset = CGSize.zero
         aButton.layer.shadowColor = UIColor.gray.cgColor
+        aButton.addTarget(self, action: #selector(startPressed), for: .touchDown)
         
-        view.addSubview(aButton)
+        addSubview(aButton)
         
         return aButton
     }()
@@ -79,49 +81,55 @@ class ScreenStartViewController: UIViewController {
         aLabel.attributedText = NSAttributedString(string: "Terms and conditions", attributes:
                                                     [.underlineStyle: NSUnderlineStyle.single.rawValue])
         
-        view.addSubview(aLabel)
+        addSubview(aLabel)
         
         return aLabel
     }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-
-    }
-
-    private func setupView(){
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        backgroundColor = UIColor(red: 0.31, green: 0.28, blue: 0.94, alpha: 1.00)
+        
         setupConstraints()
-        
-        view.backgroundColor = UIColor(red: 0.31, green: 0.28, blue: 0.94, alpha: 1.00)
     }
-        
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+
+    
+    
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             
-            logoImageApp.topAnchor.constraint(equalTo: view.topAnchor, constant: 15),
-            logoImageApp.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logoImageApp.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            logoImageApp.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImageApp.heightAnchor.constraint(equalToConstant: 190),
             logoImageApp.widthAnchor.constraint(equalToConstant: 190),
             
-            participantsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            participantsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            participantsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            participantsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             participantsLabel.topAnchor.constraint(equalTo: logoImageApp.bottomAnchor, constant: 30),
             
             participantsTextField.topAnchor.constraint(equalTo: participantsLabel.bottomAnchor, constant: 5),
-            participantsTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            participantsTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            participantsTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            participantsTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             participantsTextField.heightAnchor.constraint(equalToConstant: 48),
             
             buttonStart.bottomAnchor.constraint(equalTo: termsLabel.topAnchor, constant: -16),
-            buttonStart.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            buttonStart.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            buttonStart.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            buttonStart.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             buttonStart.heightAnchor.constraint(equalToConstant: 50),
             
-            termsLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -26),
-            termsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            termsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            termsLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -26),
+            termsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            termsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
                                             
         ])
+    }
+    
+     @objc func startPressed(){
+        print("Andando el boton")
     }
 }
