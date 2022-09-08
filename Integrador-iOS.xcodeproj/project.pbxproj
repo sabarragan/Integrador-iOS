@@ -17,6 +17,8 @@
 		B442F70428C7DC3B00ED8EBA /* Integrador_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */; };
 		B442F70628C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */; };
 		B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F71828C7E05F00ED8EBA /* MainViewController.swift */; };
+		CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED628C81689006EFB94 /* SuggestionViewController.swift */; };
+		CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED828C816A4006EFB94 /* SuggestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITests.swift; sourceTree = "<group>"; };
 		B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B442F71828C7E05F00ED8EBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CC047ED628C81689006EFB94 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Controller/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,7 @@
 		B442F71328C7DF4F00ED8EBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC047ED828C816A4006EFB94 /* SuggestionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			children = (
 				67D25F5728C84A9B00F24E27 /* ScreenStart */,
 				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
+				CC047ED628C81689006EFB94 /* SuggestionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -316,6 +322,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
+				CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
