@@ -16,11 +16,17 @@
 		B442F6FA28C7DC3B00ED8EBA /* Integrador_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6F928C7DC3B00ED8EBA /* Integrador_iOSTests.swift */; };
 		B442F70428C7DC3B00ED8EBA /* Integrador_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */; };
 		B442F70628C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */; };
+
+		B4ACBEF128C8ED6400D5A36F /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */; };
+		B4ACBEF328C8ED7F00D5A36F /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */; };
+		B4ACBEF528C8ED9A00D5A36F /* ActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */; };
+
 		B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F71828C7E05F00ED8EBA /* MainViewController.swift */; };
 		CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED628C81689006EFB94 /* SuggestionViewController.swift */; };
 		CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED828C816A4006EFB94 /* SuggestionView.swift */; };
 		CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907728CA7A08001492CA /* TermsViewController.swift */; };
 		CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907928CA7A18001492CA /* TermsView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +60,17 @@
 		B442F6FF28C7DC3B00ED8EBA /* Integrador-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrador-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITests.swift; sourceTree = "<group>"; };
 		B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+
+		B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
+		B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesModel.swift; sourceTree = "<group>"; };
+
 		B442F71828C7E05F00ED8EBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CC047ED628C81689006EFB94 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Modules/Suggestion/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
 		CCDD907728CA7A08001492CA /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		CCDD907928CA7A18001492CA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +161,7 @@
 		B442F71528C7DF9B00ED8EBA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B4ACBEF428C8ED9A00D5A36F /* ActivitiesModel.swift */,
 				B442F71728C7DFBE00ED8EBA /* Models */,
 				B442F71628C7DFB500ED8EBA /* Networking */,
 			);
@@ -158,6 +171,7 @@
 		B442F71628C7DFB500ED8EBA /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B4ACBEF028C8ED6400D5A36F /* ActivityCellView.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -165,6 +179,9 @@
 		B442F71728C7DFBE00ED8EBA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+
+				B4ACBEF228C8ED7F00D5A36F /* ActivityViewController.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,11 +345,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
+				B4ACBEF528C8ED9A00D5A36F /* ActivitiesModel.swift in Sources */,
 				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
 				CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */,
 				CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
+				B4ACBEF128C8ED6400D5A36F /* ActivityCellView.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
+				B4ACBEF328C8ED7F00D5A36F /* ActivityViewController.swift in Sources */,
 				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
 				67328E7928CA0D4800AE4324 /* HomeView.swift in Sources */,
 				CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */,
