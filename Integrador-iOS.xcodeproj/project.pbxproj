@@ -20,6 +20,10 @@
 		B44D338128CA9615008B1644 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338028CA9615008B1644 /* ActivityViewController.swift */; };
 		B44D338328CA9630008B1644 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338228CA9630008B1644 /* ActivityCellView.swift */; };
 		B44D338528CA964D008B1644 /* ActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338428CA964D008B1644 /* ActivitiesModel.swift */; };
+		B44D338828CA9D91008B1644 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338728CA9D91008B1644 /* ApiManager.swift */; };
+		B44D338B28CA9FA2008B1644 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B44D338A28CA9FA2008B1644 /* Alamofire */; };
+		B44D338D28CA9FD9008B1644 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338C28CA9FD9008B1644 /* Service.swift */; };
+		B44D339228CAA1EA008B1644 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D339128CAA1EA008B1644 /* Activity.swift */; };
 		CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED628C81689006EFB94 /* SuggestionViewController.swift */; };
 		CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED828C816A4006EFB94 /* SuggestionView.swift */; };
 		CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907728CA7A08001492CA /* TermsViewController.swift */; };
@@ -61,6 +65,9 @@
 		B44D338028CA9615008B1644 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B44D338228CA9630008B1644 /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
 		B44D338428CA964D008B1644 /* ActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesModel.swift; sourceTree = "<group>"; };
+		B44D338728CA9D91008B1644 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		B44D338C28CA9FD9008B1644 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B44D339128CAA1EA008B1644 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		CC047ED628C81689006EFB94 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Modules/Suggestion/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
 		CCDD907728CA7A08001492CA /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B44D338B28CA9FA2008B1644 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +132,8 @@
 		B442F6E128C7DC3800ED8EBA /* Integrador-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B44D338E28CAA00F008B1644 /* Models */,
+				B44D338628CA9D45008B1644 /* Networking */,
 				CCDD907428CA796F001492CA /* Modules */,
 				B442F6E228C7DC3800ED8EBA /* AppDelegate.swift */,
 				B442F6E428C7DC3800ED8EBA /* SceneDelegate.swift */,
@@ -159,6 +169,23 @@
 				B44D338428CA964D008B1644 /* ActivitiesModel.swift */,
 			);
 			path = ListActivities;
+			sourceTree = "<group>";
+		};
+		B44D338628CA9D45008B1644 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B44D338728CA9D91008B1644 /* ApiManager.swift */,
+				B44D338C28CA9FD9008B1644 /* Service.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		B44D338E28CAA00F008B1644 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B44D339128CAA1EA008B1644 /* Activity.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CCDD907428CA796F001492CA /* Modules */ = {
@@ -207,6 +234,9 @@
 			dependencies = (
 			);
 			name = "Integrador-iOS";
+			packageProductDependencies = (
+				B44D338A28CA9FA2008B1644 /* Alamofire */,
+			);
 			productName = "Integrador-iOS";
 			productReference = B442F6DF28C7DC3800ED8EBA /* Integrador-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -279,6 +309,9 @@
 				Base,
 			);
 			mainGroup = B442F6D628C7DC3800ED8EBA;
+			packageReferences = (
+				B44D338928CA9FA2008B1644 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = B442F6E028C7DC3800ED8EBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -321,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B44D339228CAA1EA008B1644 /* Activity.swift in Sources */,
 				B44D338528CA964D008B1644 /* ActivitiesModel.swift in Sources */,
+				B44D338D28CA9FD9008B1644 /* Service.swift in Sources */,
 				B44D338328CA9630008B1644 /* ActivityCellView.swift in Sources */,
 				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
 				CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */,
@@ -329,6 +364,7 @@
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B44D338128CA9615008B1644 /* ActivityViewController.swift in Sources */,
+				B44D338828CA9D91008B1644 /* ApiManager.swift in Sources */,
 				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
 				67328E7928CA0D4800AE4324 /* HomeView.swift in Sources */,
 				CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */,
@@ -666,6 +702,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B44D338928CA9FA2008B1644 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B44D338A28CA9FA2008B1644 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B44D338928CA9FA2008B1644 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B442F6D728C7DC3800ED8EBA /* Project object */;
 }
