@@ -15,7 +15,6 @@ protocol ActivityManagerDelegate{
 
 struct TaskManager {
     
-    
     var delegate: ActivityManagerDelegate?
     
     func performRequest(){
@@ -80,7 +79,7 @@ struct TaskManager {
         
     }
     
-    func performRequestForParticipants(_ participants: String){
+    func performRequestForParticipants(_ participants: String) {
         let urlString = "http://www.boredapi.com/api/activity?participants=\(participants)"
         //1. Create a URL
         if let url = URL(string: urlString){
