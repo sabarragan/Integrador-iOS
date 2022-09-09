@@ -12,6 +12,8 @@ import SwiftUI
 
 class ActivityViewController: UIViewController {
     
+    var service: Service?
+    var activity: Activity?
     var activities: [String] = Activities().activities
     
     private lazy var tableView: UITableView = {
@@ -24,15 +26,16 @@ class ActivityViewController: UIViewController {
     private lazy var blueView: UIView = {
        let blueView = UIView()
         blueView.translatesAutoresizingMaskIntoConstraints = false
-        blueView.backgroundColor = UIColor(red: 62/255, green: 145/255, blue: 226/255, alpha: 1)
+        blueView.backgroundColor = UIColor(named: "text")
         blueView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+   
         return blueView
     }()
     
     private lazy var activityTitle: UILabel = {
         let activityTitle = UILabel()
         activityTitle.translatesAutoresizingMaskIntoConstraints = false
-        activityTitle.textColor = .black
+        activityTitle.textColor = .white
         activityTitle.text = "Activities"
         activityTitle.font = .systemFont(ofSize: 30, weight: .bold)
         activityTitle.textAlignment = .center
@@ -55,7 +58,7 @@ class ActivityViewController: UIViewController {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(UIImage(systemName: "chevron.left"),for: .normal)
-        backButton.tintColor = .black
+        backButton.tintColor = .white
         backButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         backButton.addTarget(self, action: #selector(self.backButtonClicked(_ :)), for: .touchUpInside)
@@ -67,6 +70,9 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        navigationController?.isNavigationBarHidden = true
         setupView()
         setupConstraints()
         
@@ -77,8 +83,19 @@ class ActivityViewController: UIViewController {
          }
     
     @objc func randomButtonClicked(_ sender: UIButton) {
-              print("randomButtonClicked")
-         }
+        print("randomButtonClicked")
+        
+        let urlActivity: String = "http://www.boredapi.com/api/activity/"
+        
+        service?.getActivity(url: urlActivity) { activityW in
+            self.activity = activityW
+            print(self.activity?.activity)
+        }onError: {
+            print("Error")
+        }
+//        let vc = SuggestionViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     private func setupView() {
                 
