@@ -36,16 +36,22 @@ class SuggestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBarConfiguration()
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.compactAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        self.navigationController?.isNavigationBarHidden = true
         
-        title = "Random"
+        setButtonActions()
     }
     
-    // MARK: - Navigation Bar Configuration
-    func navBarConfiguration() {
-        navBarAppearance.backgroundColor = UIColor(red: 0.38, green: 0.60, blue: 0.89, alpha: 1.00)
+    private func setButtonActions() {
+        sView.setTargetForTryAnotherButton(target: self, action: #selector(backButtonClicked))
+        sView.setTargetForBackButton(target: self, action: #selector(didTapTryAnotherButton))
+    }
+    
+    // MARK: - Actions
+    @objc func backButtonClicked(_ sender: UIButton) {
+        print("backButtonClicked")
+    }
+    
+    @objc func didTapTryAnotherButton(_ sender: UIButton) {
+        print("didTapTryAnotherButton")
     }
 }

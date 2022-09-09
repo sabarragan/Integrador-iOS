@@ -9,11 +9,29 @@ import UIKit
 
 class SuggestionView: UIView {
     // MARK: - Public properties
-    var activityType: ActivityType = .random
+    var activityType: ActivityType? {
+        didSet {
+            [participantsStackView,
+             priceStackView].forEach { mainStackView.addArrangedSubview($0) }
+            
+            switch activityType {
+            case .random:
+                typeTitle.text = "Random"
+                mainStackView.addArrangedSubview(categoryStackView)
+            case .category:
+                break
+            case .none:
+                print("error")
+            }
+        }
+    }
     
-    var categoryName: String? {
+    lazy var categoryName: String = "" {
         didSet {
             categoryTitleLabel.text = categoryName
+            if activityType == .category {
+                typeTitle.text = categoryName
+            }
         }
     }
     
@@ -49,12 +67,44 @@ class SuggestionView: UIView {
     }
     
     // MARK: - Properties
+    
+    // MARK: Main top bar section
+    private lazy var blueView: UIView = {
+       let blueView = UIView()
+        blueView.translatesAutoresizingMaskIntoConstraints = false
+        blueView.backgroundColor = UIColor(named: "text")
+        blueView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        return blueView
+    }()
+    
+    private lazy var typeTitle: UILabel = {
+        let activityTitle = UILabel()
+        activityTitle.translatesAutoresizingMaskIntoConstraints = false
+        activityTitle.textColor = .white
+        activityTitle.font = .systemFont(ofSize: 30, weight: .bold)
+        activityTitle.textAlignment = .center
+        activityTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        activityTitle.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        return activityTitle
+    }()
+    
+    private lazy var backButton: UIButton = {
+       let backButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setImage(UIImage(systemName: "chevron.left"),for: .normal)
+        backButton.tintColor = .white
+        backButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return backButton
+    }()
+    
+    // MARK: Main section
     private let activityTitle: UILabel = {
         let label = UILabel()
         label.text = "Learn how to play a new sport"
         label.numberOfLines = 3
         label.font = .boldSystemFont(ofSize: 38)
-        label.textColor = .label
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -82,7 +132,7 @@ class SuggestionView: UIView {
     private let participantsIcon: UIImageView = {
         let iconImage = UIImage(systemName: "person.fill")
         let icon = UIImageView(image: iconImage)
-        icon.tintColor = .black
+        icon.tintColor = .white
         return icon
     }()
     
@@ -90,7 +140,7 @@ class SuggestionView: UIView {
         let label = UILabel()
         label.text = "Participants"
         label.font = .systemFont(ofSize: 24)
-        label.textColor = .label
+        label.textColor = .white
         return label
     }()
     
@@ -98,7 +148,7 @@ class SuggestionView: UIView {
         let label = UILabel()
         label.text = "2"
         label.font = .systemFont(ofSize: 24)
-        label.textColor = .label
+        label.textColor = .white
         label.textAlignment = .right
         return label
     }()
@@ -118,7 +168,7 @@ class SuggestionView: UIView {
     private let priceIcon: UIImageView = {
         let iconImage = UIImage(systemName: "dollarsign.circle.fill")
         let icon = UIImageView(image: iconImage)
-        icon.tintColor = .black
+        icon.tintColor = .white
         return icon
     }()
     
@@ -126,7 +176,7 @@ class SuggestionView: UIView {
         let label = UILabel()
         label.text = "Price"
         label.font = .systemFont(ofSize: 24)
-        label.textColor = .label
+        label.textColor = .white
         return label
     }()
     
@@ -134,7 +184,7 @@ class SuggestionView: UIView {
         let label = UILabel()
         label.text = "Medium"
         label.font = .systemFont(ofSize: 24)
-        label.textColor = .label
+        label.textColor = .white
         label.textAlignment = .right
         return label
     }()
@@ -153,7 +203,7 @@ class SuggestionView: UIView {
     private let categoryIcon: UIImageView = {
         let iconImage = UIImage(systemName: "list.bullet")
         let icon = UIImageView(image: iconImage)
-        icon.tintColor = .black
+        icon.tintColor = .white
         return icon
     }()
     
@@ -161,7 +211,7 @@ class SuggestionView: UIView {
         let label = UILabel()
         label.text = "Relaxation"
         label.font = .systemFont(ofSize: 24)
-        label.textColor = .label
+        label.textColor = .white
         return label
     }()
     
@@ -170,7 +220,7 @@ class SuggestionView: UIView {
         button.setTitle("Try another", for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 24)
-        button.backgroundColor = UIColor(red: 0.38, green: 0.60, blue: 0.89, alpha: 1.00)
+        button.backgroundColor = UIColor(named: "text")
         return button
     }()
     
@@ -178,7 +228,6 @@ class SuggestionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         viewSetup()
-        setupActivityType()
         addSubviews()
         addConstraints()
     }
@@ -188,48 +237,58 @@ class SuggestionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup & Constraints
-    private func setupActivityType() {
-        
-        switch activityType {
-        case .random:
-            [participantsStackView,
-             priceStackView,
-             categoryStackView].forEach { mainStackView.addArrangedSubview($0) }
-            
-        case .category:
-            [participantsStackView,
-             priceStackView].forEach { mainStackView.addArrangedSubview($0) }
-        }
+    // MARK: - Public functions
+    func setTargetForBackButton(target: Any?, action: Selector) {
+        backButton.addTarget(target, action: action, for: .touchUpInside)
     }
     
+    func setTargetForTryAnotherButton(target: Any?, action: Selector) {
+        tryAnotherButton.addTarget(target, action: action, for: .touchDown)
+    }
+    
+    // MARK: - Setup & Constraints
     private func viewSetup() {
-        backgroundColor = UIColor(red: 0.91, green: 0.96, blue: 0.99, alpha: 1.00)
+        backgroundColor = UIColor(named: "background")
     }
     
     private func addSubviews() {
-        [activityTitle,
+        [blueView,
+         typeTitle,
+         backButton,
+         activityTitle,
          mainStackView,
          tryAnotherButton].forEach { addSubview($0) }
     }
     
     private func addConstraints() {
-        activityTitle.anchors(top: safeAreaLayoutGuide.topAnchor,
+        NSLayoutConstraint.activate([
+            blueView.topAnchor.constraint(equalTo: topAnchor),
+            blueView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            blueView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            typeTitle.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 60),
+            typeTitle.centerXAnchor.constraint(equalTo: blueView.centerXAnchor),
+            
+            backButton.topAnchor.constraint(equalTo: blueView.topAnchor, constant: 60),
+            backButton.leadingAnchor.constraint(equalTo: blueView.leadingAnchor, constant: 20),
+        ])
+        
+        activityTitle.anchors(top: blueView.bottomAnchor,
                               leading: safeAreaLayoutGuide.leadingAnchor,
                               trailing: safeAreaLayoutGuide.trailingAnchor,
                               padding: UIEdgeInsets(top: 50,
-                                                    left: 55,
+                                                    left: 45,
                                                     bottom: 0,
-                                                    right: 55))
+                                                    right: 45))
         
         mainStackView.anchors(leading: safeAreaLayoutGuide.leadingAnchor,
                               trailing: safeAreaLayoutGuide.trailingAnchor,
                               centerX: centerXAnchor,
                               centerY: centerYAnchor,
                               padding: UIEdgeInsets(top: 0,
-                                                    left: 55,
+                                                    left: 45,
                                                     bottom: 0,
-                                                    right: 55))
+                                                    right: 45))
         
         participantsIcon.anchors(size: CGSize(width: 36, height: 36))
         priceIcon.anchors(size: CGSize(width: 36, height: 36))
