@@ -51,15 +51,15 @@ class TermsViewController: UIViewController {
         return aTextView
     }()
     
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "background")
-        title = "Terms and Conditions"
+        setupUI()
     }
     
     func setupUI() {
         setupConstraints()
+        view.backgroundColor = UIColor(named: "background")
+        title = "Terms and Conditions"
     }
     
     func setupConstraints() {
