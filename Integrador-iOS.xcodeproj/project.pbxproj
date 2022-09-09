@@ -27,7 +27,6 @@
 		CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED628C81689006EFB94 /* SuggestionViewController.swift */; };
 		CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC047ED828C816A4006EFB94 /* SuggestionView.swift */; };
 		CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907728CA7A08001492CA /* TermsViewController.swift */; };
-		CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD907928CA7A18001492CA /* TermsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +70,6 @@
 		CC047ED628C81689006EFB94 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		CC047ED828C816A4006EFB94 /* SuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SuggestionView.swift; path = "Integrador-iOS/Modules/Suggestion/SuggestionView.swift"; sourceTree = SOURCE_ROOT; };
 		CCDD907728CA7A08001492CA /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
-		CCDD907928CA7A18001492CA /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				CCDD907728CA7A08001492CA /* TermsViewController.swift */,
-				CCDD907928CA7A18001492CA /* TermsView.swift */,
 			);
 			path = Terms;
 			sourceTree = "<group>";
@@ -359,7 +356,6 @@
 				B44D338D28CA9FD9008B1644 /* Service.swift in Sources */,
 				B44D338328CA9630008B1644 /* ActivityCellView.swift in Sources */,
 				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
-				CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */,
 				CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
