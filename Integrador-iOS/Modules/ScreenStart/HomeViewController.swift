@@ -22,11 +22,9 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
     }
     
     
-    
     func didFailWithError(error: Error) {
         print(error)
     }
-    
     
     
     private lazy var logoImageApp: UIImageView = {
@@ -155,7 +153,7 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
     }
     
     @objc func startButton(){
-        print(participantsTextField.text!)
+//        print(participantsTextField.text!)
         
         let vc = ActivityViewController()
         navigationController?.pushViewController(vc, animated: true)

@@ -8,10 +8,24 @@
 import Foundation
 import UIKit
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController, ActivityManagerDelegate {
     
-    var service: Service?
-    var activity: Activity?
+    var suggestion = SuggestionViewController()
+    
+    var taskedActivity = TaskManager()
+    
+    func didUpdateWeather(tasked: ActivityModel) {
+        DispatchQueue.main.async {
+            self.suggestion.actvityText = tasked.activity
+            print(tasked.activity)
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print("asdsad")
+    }
+    
+    
     var activities: [String] = Activities().activities
     
     private lazy var tableView: UITableView = {
@@ -68,7 +82,7 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        taskedActivity.delegate = self
         
         navigationController?.isNavigationBarHidden = true
         setupView()
@@ -78,10 +92,15 @@ class ActivityViewController: UIViewController {
     
     @objc func backButtonClicked(_ sender: UIButton) {
               print("backButtonClicked")
+        
+        self.navigationController?.popViewController(animated: true)
+        
          }
     
     @objc func randomButtonClicked(_ sender: UIButton) {
         print("randomButtonClicked")
+        taskedActivity.performRequest()
+        
         
         
 //        let urlActivity: String = "http://www.boredapi.com/api/activity/"

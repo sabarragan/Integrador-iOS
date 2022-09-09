@@ -38,7 +38,6 @@ struct TaskManager {
                         self.delegate?.didUpdateWeather(tasked: activityData)
                         
                     }
-                    
                 }
             }
             

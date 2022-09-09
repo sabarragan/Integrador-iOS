@@ -17,12 +17,18 @@ class SuggestionViewController: UIViewController {
     // MARK: - Properties
     private let navBarAppearance = UINavigationBarAppearance()
     private lazy var suggestionView = SuggestionView()
+    
+    var actvityText: String? {
+        didSet{
+            suggestionView.activityText = actvityText
+        }
+    }
 
     // MARK: - Life Cycle
     override func loadView() {
         view = suggestionView
         suggestionView.activityType = .random
-        suggestionView.activityText = "Hi, I´m an example"
+//        suggestionView.activityText = "Hi, I´m an example"
         suggestionView.participantsCount = 2
         suggestionView.price = 0.6
         suggestionView.categoryName = "Adventure"
