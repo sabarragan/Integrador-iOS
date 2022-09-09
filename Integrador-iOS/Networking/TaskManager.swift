@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol ActivityManagerDelegate{
-    func didUpdateWeather(tasked: ActivityModel)
+    func didUpdateWeather(tasked: ActivityData)
     func didFailWithError(error: Error)
 }
 
@@ -111,7 +111,7 @@ struct TaskManager {
         
     }
     
-    func parseJSON(_ activityData: Data) -> ActivityModel?{
+    func parseJSON(_ activityData: Data) -> ActivityData?{
         
         let decoder = JSONDecoder()
         do {
@@ -125,7 +125,7 @@ struct TaskManager {
             let key = decodedData.key
             let accessibility = decodedData.accessibility
             
-            let detailActivity = ActivityModel(activity: activity, type: type, participants: participant, price: price, link: link, key: key, accessibility: accessibility)
+            let detailActivity = ActivityData(activity: activity, type: type, participants: participant, price: price, link: link, key: key, accessibility: accessibility)
             
             return detailActivity
             

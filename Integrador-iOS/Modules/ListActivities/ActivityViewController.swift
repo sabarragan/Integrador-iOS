@@ -14,7 +14,7 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
     
     var taskedActivity = TaskManager()
     
-    func didUpdateWeather(tasked: ActivityModel) {
+    func didUpdateWeather(tasked: ActivityData) {
         DispatchQueue.main.async {
             self.suggestion.actvityText = tasked.activity
             self.suggestion.participantsCount = tasked.participants

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6705DFE828CAD5240072DE94 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705DFE728CAD5240072DE94 /* TaskManager.swift */; };
-		6705DFEA28CAD6510072DE94 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705DFE928CAD6510072DE94 /* ActivityModel.swift */; };
 		6705DFEC28CAD82E0072DE94 /* ActivityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6705DFEB28CAD82E0072DE94 /* ActivityData.swift */; };
 		67D25F5928C84AF300F24E27 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D25F5828C84AF300F24E27 /* HomeViewController.swift */; };
 		B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6E228C7DC3800ED8EBA /* AppDelegate.swift */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		6705DFE728CAD5240072DE94 /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
-		6705DFE928CAD6510072DE94 /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		6705DFEB28CAD82E0072DE94 /* ActivityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityData.swift; sourceTree = "<group>"; };
 		67D25F5828C84AF300F24E27 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B442F6DF28C7DC3800ED8EBA /* Integrador-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Integrador-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +173,6 @@
 		B44D338E28CAA00F008B1644 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6705DFE928CAD6510072DE94 /* ActivityModel.swift */,
 				6705DFEB28CAD82E0072DE94 /* ActivityData.swift */,
 			);
 			path = Models;
@@ -348,16 +345,12 @@
 				B44D338528CA964D008B1644 /* ActivitiesModel.swift in Sources */,
 				B44D338328CA9630008B1644 /* ActivityCellView.swift in Sources */,
 				CC047ED928C816A4006EFB94 /* SuggestionView.swift in Sources */,
-				CCDD907A28CA7A18001492CA /* TermsView.swift in Sources */,
 				6705DFEC28CAD82E0072DE94 /* ActivityData.swift in Sources */,
 				CC047ED728C8168A006EFB94 /* SuggestionViewController.swift in Sources */,
 				B442F6E328C7DC3800ED8EBA /* AppDelegate.swift in Sources */,
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B44D338128CA9615008B1644 /* ActivityViewController.swift in Sources */,
-				B44D338828CA9D91008B1644 /* ApiManager.swift in Sources */,
-				67328E7928CA0D4800AE4324 /* HomeView.swift in Sources */,
 				CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */,
-				6705DFEA28CAD6510072DE94 /* ActivityModel.swift in Sources */,
 				6705DFE828CAD5240072DE94 /* TaskManager.swift in Sources */,
 				67D25F5928C84AF300F24E27 /* HomeViewController.swift in Sources */,
 			);
@@ -529,7 +522,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G2U92A79GM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Integrador-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -559,7 +552,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G2U92A79GM;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Integrador-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

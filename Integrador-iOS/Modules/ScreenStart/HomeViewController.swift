@@ -10,10 +10,10 @@ import UIKit
 class HomeViewController: UIViewController, ActivityManagerDelegate {
     
     var taskManager = TaskManager()
-    var details: ActivityModel?
+    var details: ActivityData?
     let suggestion = SuggestionViewController()
     
-    func didUpdateWeather(tasked: ActivityModel) {
+    func didUpdateWeather(tasked: ActivityData) {
         DispatchQueue.main.async {
             self.suggestion.activityType = .random
             self.suggestion.actvityText = tasked.activity
