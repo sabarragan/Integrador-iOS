@@ -6,14 +6,28 @@
 //
 
 import Foundation
-
 import UIKit
-import SwiftUI
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController, ActivityManagerDelegate {
     
-    var service: Service?
-    var activity: Activity?
+    var suggestion = SuggestionViewController()
+    
+    var taskedActivity = TaskManager()
+    
+    func didUpdateWeather(tasked: ActivityModel) {
+        DispatchQueue.main.async {
+            self.suggestion.actvityText = tasked.activity
+            self.suggestion.participantsCount = tasked.participants
+            self.suggestion.price = tasked.price
+            self.suggestion.categoryName = tasked.type
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print("asdsad")
+    }
+    
+    
     var activities: [String] = Activities().activities
     
     private lazy var tableView: UITableView = {
@@ -70,31 +84,44 @@ class ActivityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        taskedActivity.delegate = self
         
         navigationController?.isNavigationBarHidden = true
         setupView()
         setupConstraints()
         
+        suggestion.setTargetForTryAnotherButton(target: self, action: #selector(didTapTryAnotherButton(_:)))
+        
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
               print("backButtonClicked")
+        
+        self.navigationController?.popViewController(animated: true)
+        
          }
     
     @objc func randomButtonClicked(_ sender: UIButton) {
         print("randomButtonClicked")
+        suggestion.activityType = .random
+        taskedActivity.performRequest()
         
-        let urlActivity: String = "http://www.boredapi.com/api/activity/"
+    
         
-        service?.getActivity(url: urlActivity) { activityW in
-            self.activity = activityW
-            print(self.activity?.activity)
-        }onError: {
-            print("Error")
-        }
-//        let vc = SuggestionViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+//        let urlActivity: String = "http://www.boredapi.com/api/activity/"
+//
+//        service?.getActivity(url: urlActivity) { activityW in
+//            self.activity = activityW
+//            print(self.activity?.activity)
+//        }onError: {
+//            print("Error")
+//        }
+       
+        self.navigationController?.pushViewController(suggestion, animated: true)
+    }
+    
+    @objc func didTapTryAnotherButton(_ sender: UIButton) {
+        taskedActivity.performRequest()
     }
     
     private func setupView() {

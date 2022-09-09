@@ -1,13 +1,13 @@
 //
-//  Activity.swift
+//  TaskModel.swift
 //  Integrador-iOS
 //
-//  Created by Santiago Barragan Leon on 8/09/22.
+//  Created by Jacobo Ezequiel Corvalan on 08/09/2022.
 //
 
 import Foundation
 
-struct Activity: Codable {
+struct ActivityModel {
     let activity: String
     let type: String
     let participants: Int
@@ -16,4 +16,3 @@ struct Activity: Codable {
     let key: String
     let accessibility: Double
 }
-
