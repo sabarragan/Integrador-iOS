@@ -6,9 +6,7 @@
 //
 
 import Foundation
-
 import UIKit
-import SwiftUI
 
 class ActivityViewController: UIViewController {
     
@@ -85,16 +83,19 @@ class ActivityViewController: UIViewController {
     @objc func randomButtonClicked(_ sender: UIButton) {
         print("randomButtonClicked")
         
-        let urlActivity: String = "http://www.boredapi.com/api/activity/"
         
-        service?.getActivity(url: urlActivity) { activityW in
-            self.activity = activityW
-            print(self.activity?.activity)
-        }onError: {
-            print("Error")
-        }
-//        let vc = SuggestionViewController()
-//        self.navigationController?.pushViewController(vc, animated: true)
+//        let urlActivity: String = "http://www.boredapi.com/api/activity/"
+//
+//        service?.getActivity(url: urlActivity) { activityW in
+//            self.activity = activityW
+//            print(self.activity?.activity)
+//        }onError: {
+//            print("Error")
+//        }
+       
+        
+        let vc = SuggestionViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupView() {
