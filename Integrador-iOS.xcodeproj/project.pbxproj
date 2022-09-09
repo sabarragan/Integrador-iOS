@@ -16,7 +16,6 @@
 		B442F6FA28C7DC3B00ED8EBA /* Integrador_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F6F928C7DC3B00ED8EBA /* Integrador_iOSTests.swift */; };
 		B442F70428C7DC3B00ED8EBA /* Integrador_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */; };
 		B442F70628C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */; };
-		B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B442F71828C7E05F00ED8EBA /* MainViewController.swift */; };
 		B44D338128CA9615008B1644 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338028CA9615008B1644 /* ActivityViewController.swift */; };
 		B44D338328CA9630008B1644 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338228CA9630008B1644 /* ActivityCellView.swift */; };
 		B44D338528CA964D008B1644 /* ActivitiesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44D338428CA964D008B1644 /* ActivitiesModel.swift */; };
@@ -60,7 +59,6 @@
 		B442F6FF28C7DC3B00ED8EBA /* Integrador-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Integrador-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B442F70328C7DC3B00ED8EBA /* Integrador_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITests.swift; sourceTree = "<group>"; };
 		B442F70528C7DC3B00ED8EBA /* Integrador_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Integrador_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B442F71828C7E05F00ED8EBA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B44D338028CA9615008B1644 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		B44D338228CA9630008B1644 /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
 		B44D338428CA964D008B1644 /* ActivitiesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesModel.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		CCDD907428CA796F001492CA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				B442F71828C7E05F00ED8EBA /* MainViewController.swift */,
 				67D25F5728C84A9B00F24E27 /* ScreenStart */,
 				CCDD907628CA79F1001492CA /* Terms */,
 				B44D337F28CA95E5008B1644 /* ListActivities */,
@@ -361,7 +358,6 @@
 				B442F6E528C7DC3800ED8EBA /* SceneDelegate.swift in Sources */,
 				B44D338128CA9615008B1644 /* ActivityViewController.swift in Sources */,
 				B44D338828CA9D91008B1644 /* ApiManager.swift in Sources */,
-				B442F71928C7E05F00ED8EBA /* MainViewController.swift in Sources */,
 				67328E7928CA0D4800AE4324 /* HomeView.swift in Sources */,
 				CCDD907828CA7A08001492CA /* TermsViewController.swift in Sources */,
 				67D25F5928C84AF300F24E27 /* HomeViewController.swift in Sources */,
