@@ -18,29 +18,8 @@ struct TaskManager {
     
     func performRequest(){
         let urlString = "http://www.boredapi.com/api/activity"
-        //1. Create a URL
         if let url = URL(string: urlString){
-            
-            //2. Create a URLSession
-            let session = URLSession(configuration: .default)
-            
-            //3. Give tje session task
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil{
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                if let safeData = data {
-                    if let activityData = self.parseJSON(safeData){
-                        
-                        self.delegate?.didUpdateWeather(tasked: activityData)
-                        
-                    }
-                }
-            }
-
-            //4. Start the task
-            task.resume()
+            getData(for: url)
         }
         
     }
@@ -48,50 +27,37 @@ struct TaskManager {
     func performRequestForCategory(_ category: String){
         let urlString = "http://www.boredapi.com/api/activity?type=\(category)"
         if let url = URL(string: urlString){
-
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil{
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                if let safeData = data {
-                    if let activityData = self.parseJSON(safeData){
-                        
-                        self.delegate?.didUpdateWeather(tasked: activityData)
-                        
-                    }
-                }
-            }
-            task.resume()
+            getData(for: url)
         }
         
     }
     
     func performRequestForParticipants(_ participants: String) {
         let urlString = "http://www.boredapi.com/api/activity?participants=\(participants)"
-        if let url = URL(string: urlString){
-
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if error != nil{
-                    self.delegate?.didFailWithError(error: error!)
-                    return
-                }
-                if let safeData = data {
-                    if let activityData = self.parseJSON(safeData){
-                        
-                        self.delegate?.didUpdateWeather(tasked: activityData)
-                        
-                    }
-                }
-            }
-            task.resume()
+        if let url = URL(string: urlString) {
+            getData(for: url)
         }
-        
     }
     
-    func parseJSON(_ activityData: Data) -> ActivityData?{
+    private func getData(for url: URL) {
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if error != nil{
+                self.delegate?.didFailWithError(error: error!)
+                return
+            }
+            if let safeData = data {
+                if let activityData = self.parseJSON(safeData){
+                    
+                    self.delegate?.didUpdateWeather(tasked: activityData)
+                    
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    private func parseJSON(_ activityData: Data) -> ActivityData?{
         
         let decoder = JSONDecoder()
         do {
