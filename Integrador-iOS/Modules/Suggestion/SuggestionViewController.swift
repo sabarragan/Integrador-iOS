@@ -74,9 +74,4 @@ class SuggestionViewController: UIViewController {
     @objc func backButtonClicked(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-//    @objc func didTapTryAnotherButton(_ sender: UIButton) {
-//        print("didTapTryAnotherButton")
-//
-//    }
 }

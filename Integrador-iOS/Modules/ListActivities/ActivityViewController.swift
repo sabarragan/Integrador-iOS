@@ -24,7 +24,7 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print("asdsad", error)
+        print(error)
     }
     
     var activities: [String] = Activities().activities
@@ -94,28 +94,12 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
     }
     
     @objc func backButtonClicked(_ sender: UIButton) {
-              print("backButtonClicked")
-        
         self.navigationController?.popViewController(animated: true)
-        
-         }
+    }
     
     @objc func randomButtonClicked(_ sender: UIButton) {
-        print("randomButtonClicked")
         suggestion.activityType = .random
         taskedActivity.performRequest()
-        
-    
-        
-//        let urlActivity: String = "http://www.boredapi.com/api/activity/"
-//
-//        service?.getActivity(url: urlActivity) { activityW in
-//            self.activity = activityW
-//            print(self.activity?.activity)
-//        }onError: {
-//            print("Error")
-//        }
-       
         self.navigationController?.pushViewController(suggestion, animated: true)
     }
     
