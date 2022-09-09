@@ -18,20 +18,39 @@ class SuggestionViewController: UIViewController {
     private let navBarAppearance = UINavigationBarAppearance()
     private lazy var suggestionView = SuggestionView()
     
+    var activityType: ActivityType? {
+        didSet {
+            suggestionView.activityType = activityType
+        }
+    }
+    
     var actvityText: String? {
         didSet{
             suggestionView.activityText = actvityText
+        }
+    }
+    
+    var participantsCount: Int? {
+        didSet {
+            suggestionView.participantsCount = participantsCount
+        }
+    }
+    
+    var price: Double? {
+        didSet {
+            suggestionView.price = price
+        }
+    }
+    
+    var categoryName: String? {
+        didSet {
+            suggestionView.categoryName = categoryName ?? ""
         }
     }
 
     // MARK: - Life Cycle
     override func loadView() {
         view = suggestionView
-        suggestionView.activityType = .random
-//        suggestionView.activityText = "Hi, I´m an example"
-        suggestionView.participantsCount = 2
-        suggestionView.price = 0.6
-        suggestionView.categoryName = "Adventure"
     }
     
     override func viewDidLoad() {
@@ -41,17 +60,23 @@ class SuggestionViewController: UIViewController {
         setButtonActions()
     }
     
+    func setTargetForTryAnotherButton(target: Any?, action: Selector) {
+        suggestionView.setTargetForTryAnotherButton(target: target, action: action)
+        self.reloadInputViews()
+    }
+    
     private func setButtonActions() {
-        sView.setTargetForTryAnotherButton(target: self, action: #selector(backButtonClicked))
-        sView.setTargetForBackButton(target: self, action: #selector(didTapTryAnotherButton))
+//        suggestionView.setTargetForTryAnotherButton(target: self, action: #selector(didTapTryAnotherButton))
+        suggestionView.setTargetForBackButton(target: self, action: #selector(backButtonClicked(_:)))
     }
     
     // MARK: - Actions
     @objc func backButtonClicked(_ sender: UIButton) {
-        print("backButtonClicked")
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func didTapTryAnotherButton(_ sender: UIButton) {
-        print("didTapTryAnotherButton")
-    }
+//    @objc func didTapTryAnotherButton(_ sender: UIButton) {
+//        print("didTapTryAnotherButton")
+//
+//    }
 }

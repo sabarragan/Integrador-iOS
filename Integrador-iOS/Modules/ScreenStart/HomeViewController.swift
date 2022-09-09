@@ -154,11 +154,10 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
     
     @objc func startButton(){
 //        print(participantsTextField.text!)
+        taskManager.performRequest()
         
         let vc = ActivityViewController()
         navigationController?.pushViewController(vc, animated: true)
-        
-        taskManager.performRequest()
     }
     
     @objc func termsConditions(){
