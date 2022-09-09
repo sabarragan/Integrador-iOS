@@ -19,7 +19,7 @@ class ActivityCell: UITableViewCell {
     private lazy var activityName: UILabel = {
         let activityLabel = UILabel()
         activityLabel.translatesAutoresizingMaskIntoConstraints = false
-        activityLabel.textColor = .black
+        activityLabel.textColor = .white
         activityLabel.font = UIFont.boldSystemFont(ofSize: 18)
         return activityLabel
     }()
@@ -29,7 +29,7 @@ class ActivityCell: UITableViewCell {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.contentMode = .scaleAspectFit
         nextButton.image = UIImage(systemName: "chevron.right")
-        nextButton.tintColor = .black
+        nextButton.tintColor = .white
         return nextButton
     }()
     
@@ -46,7 +46,7 @@ class ActivityCell: UITableViewCell {
     private func setupView() {
         contentView.addSubview(activityName)
         contentView.addSubview(button)
-        contentView.backgroundColor = UIColor(red: 211/255, green: 241/255, blue: 254/255, alpha: 1)
+        contentView.backgroundColor = UIColor(named: "background")
     }
     
     private func setupConstraints() {

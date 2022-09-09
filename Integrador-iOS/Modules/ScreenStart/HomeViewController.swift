@@ -14,18 +14,18 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
     let suggestion = SuggestionViewController()
     
     func didUpdateWeather(tasked: ActivityModel) {
-        DispatchQueue.main.async{
-            
-                }
-        print(tasked.activity)
-        
+        DispatchQueue.main.async {
+            self.suggestion.activityType = .random
+            self.suggestion.actvityText = tasked.activity
+            self.suggestion.participantsCount = tasked.participants
+            self.suggestion.price = tasked.price
+            self.suggestion.categoryName = tasked.type
+        }
     }
-    
     
     func didFailWithError(error: Error) {
         print(error)
     }
-    
     
     private lazy var logoImageApp: UIImageView = {
         
@@ -108,8 +108,7 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
         setupConstraints()
         taskManager.delegate = self
         
-        
-        
+        suggestion.setTargetForTryAnotherButton(target: self, action: #selector(didTapTryAnotherButton(_:)))
     }
     
     private func setupView(){
@@ -153,15 +152,22 @@ class HomeViewController: UIViewController, ActivityManagerDelegate {
     }
     
     @objc func startButton(){
-//        print(participantsTextField.text!)
-        taskManager.performRequest()
-        
-        let vc = ActivityViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        if(participantsTextField.hasText) {
+            guard let participantsText = participantsTextField.text else { return }
+            taskManager.performRequestForParticipants(participantsText)
+            navigationController?.pushViewController(suggestion, animated: true)
+        } else {
+            let vc = ActivityViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc func termsConditions(){
         present(TermsViewController(), animated: true)
+    }
+    
+    @objc func didTapTryAnotherButton(_ sender: UIButton) {
+        taskManager.performRequestForParticipants(participantsTextField.text!)
     }
     
 }

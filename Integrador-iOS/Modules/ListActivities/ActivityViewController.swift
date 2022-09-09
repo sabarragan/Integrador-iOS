@@ -24,16 +24,15 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print("asdsad")
+        print("asdsad", error)
     }
-    
     
     var activities: [String] = Activities().activities
     
     private lazy var tableView: UITableView = {
         let activitiesTable = UITableView()
         activitiesTable.translatesAutoresizingMaskIntoConstraints = false
-        activitiesTable.backgroundColor = UIColor(red: 211/255, green: 241/255, blue: 254/255, alpha: 1)
+        activitiesTable.backgroundColor = UIColor(named: "background")
         return activitiesTable
     }()
     
@@ -61,7 +60,7 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
     private lazy var randomButton: UIButton = {
        let randomButton = UIButton()
         randomButton.translatesAutoresizingMaskIntoConstraints = false
-        randomButton.setImage(UIImage(named: "random-icon"), for: .normal)
+        randomButton.setImage(UIImage(named: "random-icon-white"), for: .normal)
         randomButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
         randomButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         randomButton.addTarget(self, action: #selector(self.randomButtonClicked(_ :)), for: .touchUpInside)
@@ -166,10 +165,12 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
 
 extension ActivityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        suggestion.activityType = .category
         
         let acticitySelected = self.activities[indexPath.row] // Actividad Seleccionada, se debe enviar a las vista que hizo Ana.
+        taskedActivity.performRequestForCategory(acticitySelected.lowercased())
         
-        print(acticitySelected)
+        self.navigationController?.pushViewController(suggestion, animated: true)
     }
 }
 

@@ -16,7 +16,7 @@ class TermsViewController: UIViewController {
         aButton.translatesAutoresizingMaskIntoConstraints = false
         aButton.setBackgroundImage(UIImage(systemName: "x.circle"), for: .normal)
         aButton.addTarget(self, action: #selector(funcDismiss), for: .touchDown)
-        aButton.tintColor = UIColor(named: "text")
+        aButton.tintColor = .white
         aButton.contentMode = .scaleAspectFill
         view.addSubview(aButton)
         return aButton
@@ -27,7 +27,7 @@ class TermsViewController: UIViewController {
         aLabel.translatesAutoresizingMaskIntoConstraints = false
         aLabel.textAlignment = .center
         aLabel.font = UIFont(name: "Arial", size: 40)
-        aLabel.textColor = UIColor(named: "text")
+        aLabel.textColor = .white
         aLabel.text = "Not Bored"
         view.addSubview(aLabel)
         return aLabel
@@ -81,8 +81,7 @@ class TermsViewController: UIViewController {
     }
     
     @objc func funcDismiss() {
-        let vc = TermsViewController()
-        vc.dismiss(animated: true)
+        self.dismiss(animated: true)
     }
 }
 

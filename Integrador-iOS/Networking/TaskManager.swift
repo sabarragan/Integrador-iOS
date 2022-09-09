@@ -49,6 +49,68 @@ struct TaskManager {
         
     }
     
+    func performRequestForCategory(_ category: String){
+        let urlString = "http://www.boredapi.com/api/activity?type=\(category)"
+        //1. Create a URL
+        if let url = URL(string: urlString){
+            
+            //2. Create a URLSession
+            let session = URLSession(configuration: .default)
+            
+            //3. Give tje session task
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil{
+                    self.delegate?.didFailWithError(error: error!)
+                    return
+                }
+                if let safeData = data {
+                    if let activityData = self.parseJSON(safeData){
+                        
+                        self.delegate?.didUpdateWeather(tasked: activityData)
+                        
+                    }
+                }
+            }
+            
+            //let task = session.dataTask(with: url, completionHandler: handle(data:response:error:))
+            
+            //4. Start the task
+            task.resume()
+        }
+        
+    }
+    
+    func performRequestForParticipants(_ participants: String){
+        let urlString = "http://www.boredapi.com/api/activity?participants=\(participants)"
+        //1. Create a URL
+        if let url = URL(string: urlString){
+            
+            //2. Create a URLSession
+            let session = URLSession(configuration: .default)
+            
+            //3. Give tje session task
+            let task = session.dataTask(with: url) { data, response, error in
+                if error != nil{
+                    self.delegate?.didFailWithError(error: error!)
+                    return
+                }
+                if let safeData = data {
+                    if let activityData = self.parseJSON(safeData){
+                        
+                        self.delegate?.didUpdateWeather(tasked: activityData)
+                        
+                    }
+                }
+            }
+            
+            //let task = session.dataTask(with: url, completionHandler: handle(data:response:error:))
+            
+            //4. Start the task
+            task.resume()
+        }
+        
+    }
+    
     func parseJSON(_ activityData: Data) -> ActivityModel?{
         
         let decoder = JSONDecoder()
