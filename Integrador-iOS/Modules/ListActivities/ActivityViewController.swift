@@ -52,8 +52,6 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
         activityTitle.text = "Activities"
         activityTitle.font = .systemFont(ofSize: 30, weight: .bold)
         activityTitle.textAlignment = .center
-        activityTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        activityTitle.widthAnchor.constraint(equalToConstant: 180).isActive = true
         return activityTitle
     }()
     
