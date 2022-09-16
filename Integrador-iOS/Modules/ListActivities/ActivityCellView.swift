@@ -8,7 +8,7 @@
 import UIKit
 
 class ActivityCell: UITableViewCell {
-    let constantCell: CGFloat = 25
+    private let padding: CGFloat = 25
     
     var activity: String?{
         didSet {
@@ -51,9 +51,9 @@ class ActivityCell: UITableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            activityName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: constantCell),
-            activityName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -constantCell),
-            activityName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: constantCell),
+            activityName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            activityName.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding),
+            activityName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
             button.heightAnchor.constraint(equalToConstant: 30),
             button.widthAnchor.constraint(equalToConstant: 30),
             button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
