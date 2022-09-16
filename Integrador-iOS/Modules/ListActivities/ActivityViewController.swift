@@ -27,7 +27,7 @@ class ActivityViewController: UIViewController, ActivityManagerDelegate {
         print(error)
     }
     
-    var activities: [String] = Activities().activities
+    var activities: [String] = Activity().activitiesList
     
     private lazy var tableView: UITableView = {
         let activitiesTable = UITableView()
