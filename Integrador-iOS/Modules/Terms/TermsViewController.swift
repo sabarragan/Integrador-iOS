@@ -9,7 +9,7 @@ import UIKit
 
 class TermsViewController: UIViewController {
     
-    let viewMargin: CGFloat = 20
+    private let padding: CGFloat = 20
     
     private lazy var dismissButton: UIButton = {
         let aButton = UIButton(type: .system)
@@ -70,13 +70,13 @@ class TermsViewController: UIViewController {
             dismissButton.heightAnchor.constraint(equalToConstant: 40),
             
             titleLabel.topAnchor.constraint(equalTo: dismissButton.bottomAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: viewMargin),
-            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -viewMargin),
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             
-            termsTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: viewMargin),
-            termsTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: viewMargin),
-            termsTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -viewMargin),
-            termsTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -viewMargin)
+            termsTextView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding),
+            termsTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            termsTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            termsTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding)
         ])
     }
     
